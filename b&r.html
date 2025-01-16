@@ -303,7 +303,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <button class="album-button" onclick="openModal('Wedding Photos')">
+            <button class="album-button" onclick="openModal('Wedding Photos', 'https://photos.app.goo.gl/vEPex3y7wBh3B8rT7', 'https://drive.google.com/drive/folders/1K4F7XizkWHQK_2PvPdP-z9I47h5OV6Rk?usp=drive_link')">
                 <span class="icon">📸</span>
                 Wedding Photos
             </button>
@@ -311,11 +311,10 @@
                 <span class="icon">🎥</span>
                 Wedding Videos
             </button>
-            <button class="album-button" onclick="openModal('Wedding Album')">
+            <button class="album-button" onclick="openModal('Wedding Album', 'https://photos.app.goo.gl/eq6TnwnjzhKhGAfo7', 'https://drive.google.com/drive/folders/1k5Vmkj2pZpgMjy-pjX_AunQqR0eQYSq_?usp=drive_link')">
                 <span class="icon">📖</span>
                 Wedding Album
             </button>
-            
         </div>
     </div>
 </div>
@@ -325,17 +324,23 @@
     <div class="modal-content">
         <button class="modal-close" onclick="closeModal()">×</button>
         <h3 class="modal-title" id="modalTitle"></h3>
-        <a href="#" class="modal-button">View in Google Photos</a>
-        <a href="#" class="modal-button">View in Google Drive</a>
+        <a href="#" class="modal-button" id="googlePhotosLink">View in Google Photos</a>
+        <a href="#" class="modal-button" id="googleDriveLink">View in Google Drive</a>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <script>
-    function openModal(title) {
+    function openModal(title, googlePhotosLink, googleDriveLink) {
         const modal = document.getElementById('modal');
         const modalTitle = document.getElementById('modalTitle');
+        const googlePhotosButton = document.getElementById('googlePhotosLink');
+        const googleDriveButton = document.getElementById('googleDriveLink');
+
         modalTitle.textContent = title;
+        googlePhotosButton.href = googlePhotosLink;
+        googleDriveButton.href = googleDriveLink;
+
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
@@ -345,14 +350,7 @@
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-        const modal = document.getElementById('modal');
-        if (event.target === modal) {
-            closeModal();
-        }
-    }
 </script>
+
 </body>
 </html>

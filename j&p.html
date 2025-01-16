@@ -303,28 +303,26 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <button class="album-button" onclick="openModal('Pre Wedding Photos')">
+            <button class="album-button" onclick="openModal('Pre Wedding Photos', 'https://photos.app.goo.gl/cnAtTa9w2ZijQzdUA', 'https://drive.google.com/drive/folders/1TxjsIIXmVr0H46g0c9e7IMuyzEYygsTm?usp=drive_link')">
                 <span class="icon">📸</span>
                 Pre Wedding Photos
             </button>
-            <button class="album-button" onclick="openModal('Wedding Photos')">
+            <button class="album-button" onclick="openModal('Wedding Photos', 'https://photos.app.goo.gl/cQhj5btAzZjJCH3w5', 'https://drive.google.com/drive/folders/1uiF3lkfVPlEZLOAx_qEIIMBGd80wO2aH?usp=drive_link')">
                 <span class="icon">💑</span>
                 Wedding Photos
             </button>
-            <button class="album-button" onclick="openModal('Pre Wedding Videos')">
+            <button class="album-button" onclick="openModal('Pre Wedding Videos', 'https://photos.app.goo.gl/NRsdVShxQCXpJMF76', 'https://drive.google.com/drive/folders/1aUaDQL0_jgAUPe9ee9qxvGymLHldz975?usp=drive_link')">
                 <span class="icon">🎥</span>
                 Pre Wedding Videos
             </button>
-            <button class="album-button" onclick="openModal('Post Wedding Videos')">
+            <button class="album-button" onclick="openModal('Wedding Videos', 'https://photos.app.goo.gl/nzxUxefuxZ7ioaZp7', 'https://drive.google.com/drive/folders/1vTsfMFslM_JkWlgsOt-fmiiMZGdJJEWg?usp=drive_link')">
                 <span class="icon">🎬</span>
-                Post Wedding Videos
+                Wedding Videos
             </button>
-            <button class="album-button" onclick="openModal('Wedding Album')">
+            <button class="album-button" onclick="openModal('Wedding Album', 'https://photos.app.goo.gl/PxXCFzrDfZLf46k29', 'https://drive.google.com/drive/folders/1kda72FpKNQNAvGh9_CiLp-FWAGAYfPTY?usp=drive_link')">
                 <span class="icon">📖</span>
                 Wedding Album
             </button>
-
-
         </div>
     </div>
 </div>
@@ -334,17 +332,23 @@
     <div class="modal-content">
         <button class="modal-close" onclick="closeModal()">×</button>
         <h3 class="modal-title" id="modalTitle"></h3>
-        <a href="#" class="modal-button">View in Google Photos</a>
-        <a href="#" class="modal-button">View in Google Drive</a>
+        <a id="googlePhotosLink" href="#" target="_blank" class="modal-button">View in Google Photos</a>
+        <a id="googleDriveLink" href="#" target="_blank" class="modal-button">View in Google Drive</a>
     </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 <script>
-    function openModal(title) {
+    function openModal(title, photosLink, driveLink) {
         const modal = document.getElementById('modal');
         const modalTitle = document.getElementById('modalTitle');
+        const googlePhotosLink = document.getElementById('googlePhotosLink');
+        const googleDriveLink = document.getElementById('googleDriveLink');
+
         modalTitle.textContent = title;
+        googlePhotosLink.href = photosLink;
+        googleDriveLink.href = driveLink;
+
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
